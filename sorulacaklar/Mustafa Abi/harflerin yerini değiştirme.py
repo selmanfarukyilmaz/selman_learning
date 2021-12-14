@@ -15,6 +15,29 @@ for i in c:
 
 
 
+a = 5
+b = 3
+print((f"a: {a} - b: {b}"))
+
+save = a
+a = b
+b = save
+
+print((f"a: {a} - b: {b}"))
+
+
+a = 1
+b = 2
+print((f"a: {a} - b: {b}"))
+
+a = a * b  #2 = a
+b = a / b  #1 = b
+a = a / b  #2 = a
+
+print((f"a: {a} - b: {b}"))
+
+
+
 
 
 

@@ -8,6 +8,6 @@ def stair(n):
         line = line + ("#" * i)
         print(line)
 
-stair(9)
+stair(19)
 
 

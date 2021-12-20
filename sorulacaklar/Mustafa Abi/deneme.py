@@ -5,7 +5,7 @@ alpha = string.ascii_lowercase
 
 
 
-def ragnoli(n = 6):
+def ragnoli(n = 20):
     count = (n-1) * 4 + 1
     print(count)
     middle_line = alpha[:n]

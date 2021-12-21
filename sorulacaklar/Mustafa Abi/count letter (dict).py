@@ -1,9 +1,18 @@
+import pprint
 
-letters = "selman", "faruk", "yılmaz"
-dictionary = {}
+letters = "selman","mustafa","fatih","kadir","süleyman"
 
-for i in letters:
-    length = len(i)
-    dictionary[i] = length
 
-print(dictionary)
+for letter in letters:
+    dictionary = {}
+
+    for word in letter:
+        if word in dictionary:
+            dictionary[word] += 1
+            continue
+        dictionary[word] = 1
+
+    pprint.pprint(dictionary)
+
+
+

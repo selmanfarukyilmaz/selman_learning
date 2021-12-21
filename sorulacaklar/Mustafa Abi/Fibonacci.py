@@ -1,36 +1,56 @@
 def fibonacci(step_size):
-    fib = []
-    a = 0
-    b = 1
-    if step_size > 2:
-        fib.append(a)
-        fib.append(b)
-    if step_size == 1:
-        fib.append(a)
-        return fib
+    fib = [0, 1]
+    if step_size < 3:
+        return fib[:step_size]
 
-    if step_size == 2:
-        fib.append(a)
-        fib.append(b)
-        return fib
-#   a + b = a
-#   a + b = b
-#   a + b = a
-#   a + b = b
-    for step in range(step_size-2):
-
-        if step % 2 == 0:
-            a = a + b
-            fib.append(a)
-            continue
-        b = a + b
-        fib.append(b)
+    for step in range(2, step_size):
+        new_element = fib[step-2] + fib[step-1]
+        fib.append(new_element)
 
     return fib
 
 
 
-print(fibonacci(100))
+print(fibonacci(1))
+print(fibonacci(2))
+print(fibonacci(3))
+print(fibonacci(4))
+print(fibonacci(5))
+print(fibonacci(10))
+print(fibonacci(30))
+
+
+
+
+def fib(step_size):
+    a = 0
+    b = 1
+    print(0)
+    for i in range(1,step_size ):
+        a, b = b, a + b
+
+        yield a
+
+
+for i in fib(8):
+    print(i)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

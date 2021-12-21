@@ -49,3 +49,19 @@ def print_rangoli(size):
 
 
 print_rangoli(8)
+
+################################# mustafa abiin çözümü
+
+import string
+
+size = 5
+
+letters = string.ascii_lowercase[:size]
+number_of_lines = 2 * size - 1
+number_of_chars = 2 * number_of_lines - 1
+
+for line in range(number_of_lines):
+    start = abs(size-line-1)
+    line_letters = letters[start:]
+    line_mid = "-".join(line_letters[:0:-1] + line_letters)
+    print(line_mid.center(number_of_chars, "-"))

@@ -1,10 +1,6 @@
-import time
+def returnMax(self, nums):
+		nums = sort.nums
+		return nums[-1]
 
-from selenium import webdriver
-
-
-browser = webdriver.Chrome()
-
-time.sleep(5)
-
-browser.close()
+nums = [1,2,3,4]
+nums.s

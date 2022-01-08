@@ -1,20 +1,18 @@
-arr = [6, 8, 9, 10, 11, 15]
-sum = 16
-
-
-def fx(arr, sum):
-    counter = 0
-    sort_arr = sorted(arr)
-
-    for i in sort_arr:
-        sort_arr.pop(counter)
-        counter += 1
-
-        for ii in sort_arr:
-            if i + ii == sum:
+def fx(arr, expected_sum):
+    arr_len = len(arr)
+    for ix_a in range(arr_len):
+        for ix_b in range(arr_len):
+            if ix_a != ix_b and arr[ix_a] + arr[ix_b] == expected_sum:
                 return True
-
     return False
 
 
-print(fx(arr, sum))
+assert fx(arr=[6, 8, 9, 10, 11, 15], expected_sum=23)
+assert fx(arr=[6, 8, 9, 10, 11, 15], expected_sum=14)
+assert fx(arr=[6, 8, 9, 10, 11, 15], expected_sum=17)
+assert fx(arr=[6, 8, 9, 10, 11, 15], expected_sum=21)
+assert not fx(arr=[6, 8, 9, 10, 11, 15], expected_sum=99)
+assert not fx(arr=[6, 8, 9, 10, 11, 15], expected_sum=12)
+assert not fx(arr=[6, 8, 9, 10, 11, 15], expected_sum=22)
+
+assert fx(arr=[6, 8, 9, 11, 8, 11], expected_sum=22)

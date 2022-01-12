@@ -25,15 +25,13 @@ print(fibonacci(30))
 def fib(step_size):
     a = 0
     b = 1
-    print(0)
+    yield 0
     for i in range(1,step_size ):
         a, b = b, a + b
 
         yield a
 
-
-for i in fib(8):
-    print(i)
+print(list(fib(5)))
 
 
 

@@ -1,13 +1,5 @@
-import time
+n = 6
+c = [0, 0, 0, 0, 1, 0]
 
 
-def foo():
-    for i in range(9999):
-        print("selman")
-    return
 
-
-start_time = time.time()
-foo()
-elapsed_time = time.time() - start_time
-print(elapsed_time)

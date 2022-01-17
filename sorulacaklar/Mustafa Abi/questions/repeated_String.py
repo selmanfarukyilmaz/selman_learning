@@ -5,10 +5,7 @@ def repeatedString(s: str, n: int) -> int:
     :param n: The length the string must reach by repeating itself.
     :return: The answer to how many "a" words are in the resulting string.
     """
-    count_a = 0
-    for letter in s:
-        if letter == "a":
-            count_a += 1
+    count_a = s.count("a")
 
     how_many_s = int(n / len(s)) + (n % len(s) > 0)   # if n.x > n:   n = n+1
     n_mod_len_s = n % len(s)

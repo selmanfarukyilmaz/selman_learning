@@ -1,4 +1,4 @@
-def countingValleys(steps, path):
+def countingValleys(path):
     kot = 0
     valley = 0
     for i in path:

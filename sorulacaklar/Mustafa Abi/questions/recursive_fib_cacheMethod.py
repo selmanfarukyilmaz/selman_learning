@@ -1,25 +1,18 @@
-def fib(n, cache={}):
-    if n in cache:
-        return cache[n]
-
-    if n == 0:
-        cache[n] = 0
-        return 0
-
-    elif n == 1:
-        cache[n] = 1
-        return 1
-
-    else:
-        return fib(n - 1) + fib(n - 2)
+memory = {}
+def fibonacci(n):
+    if n < 2:
+        return n
+    if not n in memory.keys():
+        memory[n] = fibonacci(n-1) + fibonacci(n-2)
+    return memory[n]
 
 
-assert fib(0) == 0
-assert fib(1) == 1
-assert fib(2) == 1
-assert fib(3) == 2
-assert fib(4) == 3
-assert fib(5) == 5
-assert fib(6) == 8
-assert fib(10) == 55
-assert fib(15) == 610
+assert fibonacci(0) == 0
+assert fibonacci(1) == 1
+assert fibonacci(2) == 1
+assert fibonacci(3) == 2
+assert fibonacci(4) == 3
+assert fibonacci(5) == 5
+assert fibonacci(6) == 8
+assert fibonacci(10) == 55
+assert fibonacci(15) == 610

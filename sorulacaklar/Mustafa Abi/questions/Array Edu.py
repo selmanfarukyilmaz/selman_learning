@@ -46,7 +46,7 @@ def printArray(arr, size):
 # Function to get gcd of a and b
 def gcd(a, b):
     if b == 0:
-        return a;
+        return a
     else:
         return gcd(b, a % b)
 

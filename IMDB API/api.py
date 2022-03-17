@@ -7,7 +7,6 @@ import pprint
 import requests
 from urllib.parse import urljoin
 
-
 api_key = "k_twpxc8hi"
 api_base_url = "https://imdb-api.com"
 language = "en"
@@ -52,10 +51,9 @@ z = y["castMovies"]
 pprint.pprint(z)
 print(type(z))
 import time
+
 for i in z:
     x = (i["id"])
-
-
 
 api_key = "k_twpxc8hi"
 api_base_url = "https://imdb-api.com"
@@ -74,13 +72,19 @@ pprint.pprint(response.json())
 print(response["imDb"])
 print(type(response))
 print(response.json())
+"k_twpxc8hi"
+"k_nv7mp1fp"
 
-def get_ids(person_id):
-    api_key = "k_twpxc8hi"
+
+def get_top3(person_id: str):
+    """
+    Shows the name and IMDB rating of the 3 movies with the highest IMDB rating of the actor whose ID is entered
+
+    :param person_id: Actor's ID in the url part of her IMDB profile.
+    """
+    api_key = "k_nv7mp1fp"
     api_base_url = "https://imdb-api.com"
     language = "en"
-
-
 
     endpoint_name = f"{language}/API/Name/{api_key}/{person_id}"
     url = urljoin(api_base_url, endpoint_name)
@@ -89,53 +93,22 @@ def get_ids(person_id):
     headers = {}
     response = requests.get(url, headers=headers, data=payload)
     ids = []
-    for i in response.json()["castMovies"]:
-        id = (i["id"])
+
+    for movies in response.json()["castMovies"]:
+        id = (movies["id"])
         ids.append(id)
-
-    print(ids,"ids")
-
+    # pprint.pprint(ids)
 
     ratings = {}
     for film_id in ids:
         endpoint_rating = f"{language}/API/Ratings/{api_key}/{film_id}"
         url = urljoin(api_base_url, endpoint_rating)
         response = requests.get(url, headers=headers, data=payload).json()
-        ratings[film_id] = (response["imDb"])
+        ratings[response["fullTitle"]] = (response["imDb"])
+
+    sorted_ratings = sorted(ratings.items(), key=lambda x: x[1], reverse=True)
+    # print(sorted_ratings)
+    print(sorted_ratings[:3])
 
 
-    for rate in ratings.values():
-
-
-    print(sort_orders,"sort orders")
-    top = []
-    counter = 0
-
-    for i in sort_orders:
-        if counter == 3:
-            break
-        top.append(i)
-        counter += 1
-
-    print(top,"top")
-
-
-
-
-
-
-get_ids("nm0082211")
-
-def rateings():
-    api_key = "k_twpxc8hi"
-    api_base_url = "https://imdb-api.com"
-    language = "en"
-
-    film_id = "tt1224142"
-    endpoint_name = f"{language}/API/Ratings/{api_key}/{film_id}"
-    url = urljoin(api_base_url, endpoint_name)
-
-    payload = {}
-    headers = {}
-    response = requests.get(url, headers=headers, data=payload)
-
+get_top3("nm1289434")

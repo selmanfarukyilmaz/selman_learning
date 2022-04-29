@@ -107,17 +107,17 @@ def get_ids(person_id):
     for rate in ratings.values():
 
 
-    print(sort_orders,"sort orders")
-    top = []
-    counter = 0
+        print(sort_orders,"sort orders")
+        top = []
+        counter = 0
 
-    for i in sort_orders:
-        if counter == 3:
-            break
-        top.append(i)
-        counter += 1
+        for i in sort_orders:
+            if counter == 3:
+                break
+            top.append(i)
+            counter += 1
 
-    print(top,"top")
+        print(top,"top")
 
 
 
